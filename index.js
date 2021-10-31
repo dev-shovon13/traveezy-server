@@ -62,19 +62,19 @@ async function run() {
         })
 
         // UPDATE API 
-        // app.put('/userServices/:id', async (req, res) => {
-        //     const id = req.params.id
-        //     const updatedOrder = req.body
-        //     const filter = { _id: ObjectId(id) }
-        //     const options = { upsert: true }
-        //     const updateDoc = {
-        //         $set: {
-        //             status: updatedOrder.status,
-        //         },
-        //     };
-        //     const result = await usersCollection.updateOne(filter, updateDoc, options)
-        //     res.json(result)
-        // })
+        app.put('/userServices/:id', async (req, res) => {
+            const id = req.params.id
+            const updatedOrder = req.body
+            const filter = { _id: ObjectId(id) }
+            const options = { upsert: true }
+            const updateDoc = {
+                $set: {
+                    status: updatedOrder.status,
+                },
+            };
+            const result = await userServiceCollection.updateOne(filter, updateDoc, options)
+            res.json(result)
+        })
 
         // DELETE API 
         app.delete('/userServices/:id', async (req, res) => {
